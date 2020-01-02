@@ -25,7 +25,7 @@ public class Task1 {
 		}
 		boolean isdisplayed = driver.findElement(By.cssSelector("div.product_label")).isDisplayed();
 		if (isdisplayed) {
-			System.out.println("Syntax TExt is displayed");
+			System.out.println("Syntax Text is displayed");
 		} else {
 			System.out.println("Syntax Text is NOT displayed");
 		}
