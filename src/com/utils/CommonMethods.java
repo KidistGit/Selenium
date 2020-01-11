@@ -3,6 +3,7 @@ package com.utils;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class CommonMethods {
 
 	public static WebDriver driver;
+	
 
 	/**
 	 * use this method in need of opping browser and target url
@@ -129,6 +131,43 @@ public class CommonMethods {
 			System.out.println("Frame is not present");
 		}
 	}
+	
+	/**
+	 * This method will click on the element using JSExecutor
+	 * @param element
+	 */
+	public static void jsClick(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
+	}
+
+	/**
+	 * This method will scroll until until specified element
+	 * @param element
+	 */
+	public static void scrollIntoElement(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+
+	/**
+	 * This method will scroll page down
+	 * @param pixel
+	 */
+	public static void scrollDown(int pixel) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0," + pixel + ")");
+	}
+
+	/**
+	 * This method will scroll page up
+	 * @param pixel
+	 */
+	public static void scrollUp(int pixel) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0, -" + pixel + ")");
+	}
+	
 	// public static void WebDriver driver;
 	// public static WebDriver setUp(String browser) {
 	// if (browser.equalsIgnoreCase("chrome")) {
